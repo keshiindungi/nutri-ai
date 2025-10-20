@@ -1,0 +1,167 @@
+.app-container {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  padding: 2rem;
+  background-color: #0b0f19;
+  color: #e8e8e8;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #7fffa0;
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  background: #151b29;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+input,
+select {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background-color: #3fdc84;
+  color: #0b0f19;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #2ac16d;
+}
+
+.error {
+  color: #ff6464;
+  margin-top: 1rem;
+}
+
+.results-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  background: #1e2538;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  color: #7fffa0;
+  margin-bottom: 0.5rem;
+}
+
+.app-container {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  padding: 2rem;
+  background-color: #0b0f19;
+  color: #e8e8e8;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #7fffa0;
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  background: #151b29;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+input,
+select {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background-color: #3fdc84;
+  color: #0b0f19;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #2ac16d;
+}
+
+.error {
+  color: #ff6464;
+  margin-top: 1rem;
+}
+
+.results-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  background: #1e2538;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  color: #7fffa0;
+  margin-bottom: 0.5rem;
+}
