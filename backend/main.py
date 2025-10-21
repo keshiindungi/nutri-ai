@@ -1,10 +1,8 @@
-# backend/main.py
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routers.recommend import router as recommend_router  # Import the router directly
+from backend.routers.recommend import router as recommend_router  
 
-# Create the FastAPI app
 app = FastAPI(
     title="NutriAI - AI-Powered Nutrition Recommendation System",
     description="Provides affordable meal and diet suggestions using AI and nutrition data.",
@@ -26,9 +24,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers - FIX: Remove the prefix to simplify
+
 app.include_router(recommend_router, tags=["Recommendation"])
-# Root endpoint
+
 
 @app.get("/")
 def home():
