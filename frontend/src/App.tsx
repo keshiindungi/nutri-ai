@@ -26,7 +26,9 @@ function App() {
   const [error, setError] = useState("");
 
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -38,32 +40,38 @@ function App() {
     setRecommendations([]);
 
     try {
-const apiUrl = import.meta.env.VITE_API_URL;
+      // ✅ Use environment variable or fallback to live backend
+      const apiUrl =
+        import.meta.env.VITE_API_URL || "https://nutri-ai-v3kd.onrender.com";
 
-const response = await fetch(`${apiUrl}/recommend`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    ...formData,
-    age: Number(formData.age),
-    weight_kg: Number(formData.weight_kg),
-    height_cm: Number(formData.height_cm),
-    daily_budget_ksh: Number(formData.daily_budget_ksh),
-  }),
-});
-
+      const response = await fetch(`${apiUrl}/recommend`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          age: Number(formData.age),
+          weight_kg: Number(formData.weight_kg),
+          height_cm: Number(formData.height_cm),
+          daily_budget_ksh: Number(formData.daily_budget_ksh),
+        }),
+      });
 
       if (!response.ok) {
-        const errData = await response.json();
-        setError(errData.detail?.[0]?.msg || "Error fetching recommendations.");
+        const errData = await response.json().catch(() => null);
+        setError(
+          errData?.detail?.[0]?.msg ||
+            "Error fetching recommendations. Please try again."
+        );
       } else {
         const data = await response.json();
         setRecommendations(data.recommendations || []);
       }
-    } catch {
-      setError("Error connecting to backend.");
+    } catch (err) {
+      console.error(err);
+      setError("Error connecting to backend. Please check your network.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -80,7 +88,11 @@ const response = await fetch(`${apiUrl}/recommend`, {
             required
           />
 
-          <select name="gender" value={formData.gender} onChange={handleChange}>
+          <select
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+          >
             <option value="female">Female</option>
             <option value="male">Male</option>
           </select>
@@ -101,19 +113,31 @@ const response = await fetch(`${apiUrl}/recommend`, {
             required
           />
 
-          <select name="activity_level" value={formData.activity_level} onChange={handleChange}>
+          <select
+            name="activity_level"
+            value={formData.activity_level}
+            onChange={handleChange}
+          >
             <option value="low">Low</option>
             <option value="moderate">Moderate</option>
             <option value="high">High</option>
           </select>
 
-          <select name="goal" value={formData.goal} onChange={handleChange}>
+          <select
+            name="goal"
+            value={formData.goal}
+            onChange={handleChange}
+          >
             <option value="lose_weight">Lose Weight</option>
             <option value="maintain_weight">Maintain Weight</option>
             <option value="gain_weight">Gain Weight</option>
           </select>
 
-          <select name="dietary_preference" value={formData.dietary_preference} onChange={handleChange}>
+          <select
+            name="dietary_preference"
+            value={formData.dietary_preference}
+            onChange={handleChange}
+          >
             <option value="none">No Preference</option>
             <option value="vegetarian">Vegetarian</option>
             <option value="vegan">Vegan</option>
@@ -139,14 +163,14 @@ const response = await fetch(`${apiUrl}/recommend`, {
       <div className="results-container">
         {recommendations.length > 0 && <h2>Recommended Meals 🍱</h2>}
         {recommendations.map((rec, index) => (
-  <div key={index} className="card">
-    <h3>{rec.meal_items.join(" + ")}</h3>
-    <p>Calories: {rec.kcal_total}</p>
-    <p>Protein: {rec.protein_g}g</p>
-    <p>Price: KSh {rec.price_ksh}</p>
-    <p>Score: {rec.score}</p>
-  </div>
-))}
+          <div key={index} className="card">
+            <h3>{rec.meal_items.join(" + ")}</h3>
+            <p>Calories: {rec.kcal_total}</p>
+            <p>Protein: {rec.protein_g}g</p>
+            <p>Price: KSh {rec.price_ksh}</p>
+            <p>Score: {rec.score}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
