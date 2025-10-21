@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./App.css";
 
 interface Recommendation {
-  meal: string;
-  calories: number;
-  protein: number;
-  carbs: number;
-  fats: number;
+  meal_items: string[];
+  kcal_total: number;
+  protein_g: number;
+  price_ksh: number;
+  score: number;
 }
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
     setRecommendations([]);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/recommend", {
+const response = await fetch("http://127.0.0.1:8000/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -136,14 +136,14 @@ function App() {
       <div className="results-container">
         {recommendations.length > 0 && <h2>Recommended Meals 🍱</h2>}
         {recommendations.map((rec, index) => (
-          <div key={index} className="card">
-            <h3>{rec.meal}</h3>
-            <p>Calories: {rec.calories}</p>
-            <p>Protein: {rec.protein}g</p>
-            <p>Carbs: {rec.carbs}g</p>
-            <p>Fats: {rec.fats}g</p>
-          </div>
-        ))}
+  <div key={index} className="card">
+    <h3>{rec.meal_items.join(" + ")}</h3>
+    <p>Calories: {rec.kcal_total}</p>
+    <p>Protein: {rec.protein_g}g</p>
+    <p>Price: KSh {rec.price_ksh}</p>
+    <p>Score: {rec.score}</p>
+  </div>
+))}
       </div>
     </div>
   );

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Vegetable Salad",
+    "kcal": 200,
+    "protein": 8,
+    "carbs": 25,
+    "fat": 10,
+    "price_ksh": 150,
+    "tags": ["vegetarian", "salad", "healthy"]
+  },
+  {
+    "name": "Bean Stew",
+    "kcal": 350,
+    "protein": 15,
+    "carbs": 45,
+    "fat": 12,
+    "price_ksh": 120,
+    "tags": ["vegetarian", "vegan"]
+  },
+  {
+    "name": "Fruit Bowl",
+    "kcal": 180,
+    "protein": 2,
+    "carbs": 45,
+    "fat": 1,
+    "price_ksh": 100,
+    "tags": ["vegetarian", "vegan", "fruit"]
+  },
+  {
+    "name": "Chicken Sandwich",
+    "kcal": 450,
+    "protein": 25,
+    "carbs": 35,
+    "fat": 20,
+    "price_ksh": 250,
+    "tags": ["meat", "sandwich"]
+  },
+  {
+    "name": "Rice and Beans",
+    "kcal": 400,
+    "protein": 12,
+    "carbs": 75,
+    "fat": 8,
+    "price_ksh": 180,
+    "tags": ["vegetarian", "vegan"]
+  },
+  {
+    "name": "Grilled Fish",
+    "kcal": 300,
+    "protein": 30,
+    "carbs": 5,
+    "fat": 18,
+    "price_ksh": 280,
+    "tags": ["fish", "seafood"]
+  },
+  {
+    "name": "Pasta with Tomato Sauce",
+    "kcal": 380,
+    "protein": 10,
+    "carbs": 70,
+    "fat": 8,
+    "price_ksh": 200,
+    "tags": ["vegetarian", "pasta"]
+  },
+  {
+    "name": "Yogurt with Nuts",
+    "kcal": 250,
+    "protein": 12,
+    "carbs": 20,
+    "fat": 15,
+    "price_ksh": 130,
+    "tags": ["vegetarian", "dairy"]
+  },
+  {
+    "name": "Vegetable Stir Fry",
+    "kcal": 280,
+    "protein": 9,
+    "carbs": 35,
+    "fat": 12,
+    "price_ksh": 160,
+    "tags": ["vegetarian", "vegan", "stir-fry"]
+  },
+  {
+    "name": "Egg Sandwich",
+    "kcal": 320,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 15,
+    "price_ksh": 140,
+    "tags": ["vegetarian", "eggs"]
+  }
+]

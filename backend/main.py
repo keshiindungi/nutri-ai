@@ -11,19 +11,25 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # You can restrict this later
+    allow_origins=[
+        "http://localhost:3000", 
+        "http://127.0.0.1:3000",
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174"
+    ],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include routers
-app.include_router(recommend_router, prefix="/recommend", tags=["Recommendation"])
-
+# Include routers - FIX: Remove the prefix to simplify
+app.include_router(recommend_router, tags=["Recommendation"])
 # Root endpoint
+
 @app.get("/")
 def home():
     return {"message": "Welcome to NutriAI API!"}

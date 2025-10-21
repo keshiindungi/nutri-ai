@@ -1,18 +1,17 @@
 # backend/schemas.py
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Literal
 from enum import Enum
 
 class Gender(str, Enum):
     MALE = "male"
     FEMALE = "female"
 
+# Update activity levels to match frontend
 class ActivityLevel(str, Enum):
-    SEDENTARY = "sedentary"
-    LIGHT = "light"
-    MODERATE = "moderate"
-    ACTIVE = "active"
-    VERY_ACTIVE = "very_active"
+    LOW = "low"
+    MODERATE = "moderate" 
+    HIGH = "high"
 
 class Goal(str, Enum):
     LOSE_WEIGHT = "lose_weight"
@@ -20,21 +19,20 @@ class Goal(str, Enum):
     GAIN_WEIGHT = "gain_weight"
 
 class DietaryPreference(str, Enum):
-    ANY = "any"
+    NONE = "none"
     VEGETARIAN = "vegetarian"
     VEGAN = "vegan"
-    KETO = "keto"
     LOW_CARB = "low_carb"
 
 class ProfileIn(BaseModel):
     age: int
-    gender: str
+    gender: Gender
     weight_kg: float
     height_cm: float
-    activity_level: Literal["low", "moderate", "high"]
-    goal: Literal["maintain", "lose", "gain"]
+    activity_level: ActivityLevel
+    goal: Goal
+    dietary_preference: DietaryPreference
     daily_budget_ksh: float
-    dietary_preference: str = "none"
     allergies: List[str] = []
     dislikes: List[str] = []
 
