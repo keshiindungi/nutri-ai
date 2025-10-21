@@ -12,15 +12,15 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
+       allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5174",
-        "https://nutri-ai-frontend.onrender.com"  # add your frontend Render URL later
+        "https://nutri-ai-1-5djx.onrender.com",  
+        "https://nutri-ai-v3kd.onrender.com",       # optional if backend also calls itself
     ],
+
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
