@@ -38,17 +38,20 @@ function App() {
     setRecommendations([]);
 
     try {
-const response = await fetch("http://127.0.0.1:8000/recommend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          age: Number(formData.age),
-          weight_kg: Number(formData.weight_kg),
-          height_cm: Number(formData.height_cm),
-          daily_budget_ksh: Number(formData.daily_budget_ksh),
-        }),
-      });
+const apiUrl = import.meta.env.VITE_API_URL;
+
+const response = await fetch(`${apiUrl}/recommend`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    ...formData,
+    age: Number(formData.age),
+    weight_kg: Number(formData.weight_kg),
+    height_cm: Number(formData.height_cm),
+    daily_budget_ksh: Number(formData.daily_budget_ksh),
+  }),
+});
+
 
       if (!response.ok) {
         const errData = await response.json();
